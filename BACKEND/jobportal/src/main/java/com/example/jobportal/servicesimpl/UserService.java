@@ -1,4 +1,4 @@
-package com.example.jobportal.services;
+package com.example.jobportal.servicesimpl;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.password.PasswordEncoder;

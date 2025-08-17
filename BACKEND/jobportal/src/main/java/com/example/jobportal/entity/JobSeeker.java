@@ -34,6 +34,8 @@ public class JobSeeker {
     private String email;
     private String phone;
     private String resumeUrl;
+    private String location;
+    private String summary;
 
     private String targetRole;
 

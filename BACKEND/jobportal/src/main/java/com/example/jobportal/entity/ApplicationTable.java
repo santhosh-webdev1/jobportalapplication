@@ -2,7 +2,8 @@ package com.example.jobportal.entity;
 
 import java.time.LocalDateTime;
 
-import ch.qos.logback.core.status.Status;
+import com.example.jobportal.entity.enumeration.Status;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
@@ -29,6 +30,8 @@ public class ApplicationTable {
     // field for job application functionality
     @Enumerated(EnumType.STRING)
     private Status status;
+
+
     private String resumeLink;
 
 

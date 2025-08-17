@@ -14,8 +14,8 @@ import com.example.jobportal.DTO.JwtResponse;
 import com.example.jobportal.DTO.LoginRequest;
 import com.example.jobportal.DTO.RegisterRequest;
 import com.example.jobportal.jwt.JwtUtil;
-import com.example.jobportal.services.CustomUserDetailService;
-import com.example.jobportal.services.UserService;
+import com.example.jobportal.servicesimpl.CustomUserDetailService;
+import com.example.jobportal.servicesimpl.UserService;
 
 @CrossOrigin(origins = "http://localhost:5173")
 @RestController
