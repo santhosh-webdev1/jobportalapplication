@@ -2,8 +2,11 @@ package com.example.jobportal.entity.enumeration;
 
 public enum ExperienceLevel {
 
-    FRESHER,
     STUDENT,
-    EXPERIENCE,
+    FRESHER,
+    JUNIOR,
+    MID_LEVEL,
+    SENIOR,
+    LEAD,
     FREELANCER
 }

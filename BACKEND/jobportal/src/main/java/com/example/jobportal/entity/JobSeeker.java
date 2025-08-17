@@ -43,6 +43,9 @@ public class JobSeeker {
     @OneToMany(mappedBy="jobSeeker", cascade=CascadeType.ALL, orphanRemoval=true)
     private List<Skill> skills = new ArrayList<>();
 
+    @OneToMany(mappedBy="jobSeeker", cascade= CascadeType.ALL, orphanRemoval=true)
+    private List<Course> courses = new ArrayList<>();
+
 
     private LocalDateTime createdAt = LocalDateTime.now();
     private LocalDateTime updatedAt = LocalDateTime.now();
