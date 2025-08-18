@@ -1,11 +1,21 @@
 package com.example.jobportal.DTO.JobSeekerDTO;
 
+import java.time.LocalDate;
 import java.util.List;
+import java.util.stream.Collectors;
 
+import com.example.jobportal.entity.JobSeeker;
 import com.example.jobportal.entity.enumeration.ExperienceLevel;
+import com.example.jobportal.entity.enumeration.Profiency;
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 
-
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class JobSeekerProfileDTO {
 
     private String fullName;
@@ -29,83 +39,62 @@ public class JobSeekerProfileDTO {
 
     private List<CourseDTO> courses;
 
-    public String getFullName() {
-        return fullName;
+    
+
+    @Data
+    @AllArgsConstructor
+    @NoArgsConstructor
+    public static class SkillDTO{
+
+        private String skillName;
+        private Profiency profiency;
+
     }
 
-    public void setFullName(String fullName) {
-        this.fullName = fullName;
+    @Data
+    @AllArgsConstructor
+    @NoArgsConstructor
+    public static class CourseDTO{
+
+        private LocalDate startDate;
+
+        private LocalDate endDate;
+
+        private String courseName;
+
+        private String company;
+
+        private String description;
+
     }
 
-    public String getEmail() {
-        return email;
-    }
+    public JobSeekerProfileDTO(JobSeeker jobSeeker){
+        this.fullName = jobSeeker.getFullName();
+        this.email = jobSeeker.getEmail();
+        this.phone = jobSeeker.getPhone();
+        this.location = jobSeeker.getLocation();
+        this.resumeURL = jobSeeker.getResumeUrl();
+        this.targetRole = jobSeeker.getTargetRole();
+        this.summary = jobSeeker.getSummary();
+        this.experienceLevel = jobSeeker.getExperienceLevel();
 
-    public void setEmail(String email) {
-        this.email = email;
-    }
+        this.skills = jobSeeker.getSkills().stream()
+            .map(skill -> new SkillDTO(
+                skill.getSkillName(),
+                skill.getProfiency()
+            ))
+            .collect(Collectors.toList());
 
-    public String getPhone() {
-        return phone;
+        this.courses = jobSeeker.getCourses().stream()
+            .map(course -> new CourseDTO(
+                course.getStartDate(),
+                course.getEndDate(),
+                course.getCourseName(),
+                course.getCompany(),
+                course.getDescription()
+            ))
+            .collect(Collectors.toList());
     }
-
-    public void setPhone(String phone) {
-        this.phone = phone;
-    }
-
-    public String getResumeURL() {
-        return resumeURL;
-    }
-
-    public void setResumeURL(String resumeURL) {
-        this.resumeURL = resumeURL;
-    }
-
-    public String getSummary() {
-        return summary;
-    }
-
-    public void setSummary(String summary) {
-        this.summary = summary;
-    }
-
-    public String getLocation() {
-        return location;
-    }
-
-    public void setLocation(String location) {
-        this.location = location;
-    }
-
-    public String getTargetRole() {
-        return targetRole;
-    }
-
-    public void setTargetRole(String targetRole) {
-        this.targetRole = targetRole;
-    }
-
-    public ExperienceLevel getExperienceLevel() {
-        return experienceLevel;
-    }
-
-    public void setExperienceLevel(ExperienceLevel experienceLevel) {
-        this.experienceLevel = experienceLevel;
-    }
-
-    public List<SkillDTO> getSkills() {
-        return skills;
-    }
-
-    public void setSkills(List<SkillDTO> skills) {
-        this.skills = skills;
-    }
-
-    public List<CourseDTO> getCourses() {
-        return courses;
-    }
-
-    public void setCourses(List<CourseDTO> courses) {
-        this.courses = courses;
-    }
+    
+    
 }

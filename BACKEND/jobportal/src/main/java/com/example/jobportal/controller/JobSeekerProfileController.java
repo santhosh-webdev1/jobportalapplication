@@ -38,4 +38,8 @@ public class JobSeekerProfileController {
 
         return ResponseEntity.ok(response);
     }
+
+    
+
+
 }

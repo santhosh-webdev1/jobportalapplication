@@ -10,9 +10,9 @@ public interface JobSeekerProfileService {
 
     JobSeekerProfileDTO createProfile(Long userId, JobSeekerProfileDTO jobSeekerProfileDTO);
 
-    JobSeekerProfileDTO getProfile(int jobseekerId);
+    JobSeekerProfileDTO getProfile(Long jobseekerId);
 
-    JobSeekerProfileDTO updateProfile(int jobseekerId, JobSeekerProfileDTO jobSeekerProfileDTO);
+    JobSeekerProfileDTO updateProfile(Long jobseekerId, JobSeekerProfileDTO jobSeekerProfileDTO);
 
-    void deleteProfile(int jobseekerId);
+    void deleteProfile(Long jobseekerId);
 }
